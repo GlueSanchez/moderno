@@ -2017,7 +2017,7 @@ button.icon-unsorted {
       color: #707070;
       font-weight: 500;
       position: relative;
-      &.active{
+      &.active {
         color: #263238;
       }
       &.active::before {
@@ -2028,7 +2028,7 @@ button.icon-unsorted {
         font-size: 14px;
         left: 27px;
         top: 16px;
-        font-family: 'icomoon';
+        font-family: "icomoon";
         position: absolute;
       }
     }
@@ -2050,11 +2050,6 @@ button.icon-unsorted {
   p {
     color: #707070;
   }
-}
-
-.personal-box__items {
-}
-.personal-box__item {
 }
 .personal-box__item-head {
   display: flex;
@@ -2087,5 +2082,141 @@ button.icon-unsorted {
 }
 
 // end profile page
+
+// start upload page
+
+.upload__inner {
+  background-color: #fff;
+  border: 1px solid #d7d7d7;
+
+  margin-bottom: 110px;
+}
+.upload__inner-title {
+  padding: 16px 35px 18px;
+  @include f500;
+  font-size: 24px;
+  color: $bg;
+  border-bottom: 1px solid #d7d7d7;
+  margin-bottom: 40px;
+}
+.upload__inner-content {
+  margin-bottom: 30px;
+  padding-left: 45px;
+  padding-right: 50px;
+  button {
+    border: none;
+    background-color: $green;
+    color: #fff;
+    padding: 15px 35px;
+    margin-left: 175px;
+    cursor: pointer;
+  }
+}
+.upload-line {
+  margin-bottom: 25px;
+  display: flex;
+  label {
+    min-width: 175px;
+    padding-top: 5px;
+    padding-right: 15px;
+    span {
+      color: $green;
+    }
+    &::placeholder {
+      color: #707070;
+    }
+  }
+
+  select,
+  input,
+  textarea {
+    width: 100%;
+    display: block;
+    border: 1px solid #d7d7d7;
+    height: 40px;
+    background-color: #f9f9f9;
+    padding: 0px 18px;
+  }
+  textarea {
+    resize: none;
+    padding: 8px 18px;
+    height: 150px;
+  }
+  .jq-file {
+    width: 100%;
+    border-radius: 0px;
+    box-shadow: none;
+    border: 1px solid #d7d7d7;
+    height: 40px;
+    background-color: #f9f9f9;
+  }
+  input[type="file"] {
+    outline: none;
+  }
+  .jq-file__name {
+    box-sizing: border-box;
+    padding: 0px 18px;
+    line-height: 40px;
+    width: 100%;
+    height: 40px;
+    border: none;
+    border-bottom-color: transparent;
+    border-radius: 0px;
+    background: transparent;
+    box-shadow: none;
+    font-size: 12px;
+    color: #707070;
+    margin-left: 110px;
+  }
+  .jq-file__browse {
+    position: absolute;
+    top: 5px;
+    right: auto;
+    left: 9px;
+    padding: 0 12px;
+    line-height: 26px;
+    border-left: 1px solid #d7d7d7;
+    border-radius: 0px;
+    background: #fff;
+    box-shadow: none;
+    text-shadow: none;
+    border: 1px solid #d7d7d7;
+    font-size: 12px;
+    color: #444;
+  }
+  .jq-selectbox {
+    width: 100%;
+  }
+  .jq-selectbox__select {
+    height: 40px;
+    padding: 0px 18px;
+    border: 1px solid #d7d7d7;
+    border-bottom-color: #d7d7d7;
+    border-radius: 0px;
+    background: #f9f9f9;
+    box-shadow: none;
+    font-family: "Roboto-Regular", sans-serif;
+    line-height: 40px;
+    color: #707070;
+    width: 100%;
+    text-shadow: none;
+  }
+  .jq-selectbox__trigger-arrow {
+    border: none;
+    font-size: 15px;
+    width: 0;
+    top: 0;
+    right: 20px;
+    line-height: 40px;
+    &::before {
+      content: "\f0d7";
+      font-family: "icomoon";
+    }
+  }
+  .jq-selectbox__trigger {
+    border-left: none;
+  }
+}
+// end upload page
 
 @import "media";
