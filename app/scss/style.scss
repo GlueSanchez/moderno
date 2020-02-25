@@ -155,6 +155,7 @@
 .user__menu {
   border: 0px solid rgb(204, 204, 204);
   position: absolute;
+  z-index: 3;
   background-color: #fff;
   padding: 0 20px;
   width: 158px;
@@ -189,7 +190,7 @@
 .circle__menu {
   border-top: 1px solid #e0e0e0;
   position: absolute;
-  z-index: 1;
+  z-index: 3;
   background-color: #fff;
   top: 62px;
   right: 0;
@@ -474,6 +475,11 @@
   padding: 110px 0px;
   background-color: $grey;
 }
+.products__wrapper,
+.product-slider__wrapper {
+  max-width: 1920px;
+  margin: 0 auto;
+}
 .products__inner-btn {
   text-align: center;
   margin-bottom: 60px;
@@ -494,8 +500,13 @@
 }
 .products__inner-box {
   display: flex;
-  justify-content: space-between;
+  justify-content: flex-start;
+  margin-left: 30px;
   flex-wrap: wrap;
+}
+.products .product__item {
+  flex-basis: calc(25% - 30px);
+  margin-left: 30px;
 }
 .product__item {
   width: 100%;
@@ -1115,8 +1126,9 @@ button.icon-unsorted {
 .product-page__content {
   .product__item {
     background-color: #fff;
-    max-width: 270px;
     transition: all 0.5s;
+    flex-basis: calc(33.3333% - 30px);
+    margin-left: 30px;
   }
   .product__item-img {
     min-height: 180px;
@@ -1140,8 +1152,9 @@ button.icon-unsorted {
 }
 .product-page__items {
   display: flex;
-  justify-content: space-between;
+  justify-content: flex-start;
   margin-bottom: 30px;
+  margin-left: -30px;
   flex-wrap: wrap;
 }
 
@@ -1207,6 +1220,7 @@ button.icon-unsorted {
 .product__item {
   &.list {
     max-width: 100%;
+    flex-basis: 100%;
     .product__item-img {
       width: 240px;
       float: left;
@@ -1263,7 +1277,7 @@ button.icon-unsorted {
   display: flex;
   justify-content: center;
   align-items: center;
-  padding: 16px 0;
+  padding: 16px;
 }
 .product-one__images {
   max-width: 829px;
@@ -1448,6 +1462,53 @@ button.icon-unsorted {
   font-size: 22px;
   color: $red;
   @include f500;
+}
+.price__box {
+  form {
+    select {
+      width: 100%;
+      display: block;
+      border: 1px solid #d7d7d7;
+      height: 25px;
+      background-color: #f9f9f9;
+      padding: 0px 25px 0px 15px;
+      &::placeholder {
+        color: #707070;
+      }
+    }
+    .jq-selectbox {
+      width: 100%;
+    }
+    .jq-selectbox__select {
+      height: 25px;
+      padding: 0px 25px 0px 15px;
+      border: 1px solid #d7d7d7;
+      border-bottom-color: #d7d7d7;
+      border-radius: 0px;
+      background: #f9f9f9;
+      box-shadow: none;
+      font-family: "Roboto-Regular", sans-serif;
+      line-height: 25px;
+      color: #707070;
+      width: 100%;
+      text-shadow: none;
+    }
+    .jq-selectbox__trigger-arrow {
+      border: none;
+      font-size: 15px;
+      width: 0;
+      top: 0;
+      right: 20px;
+      line-height: 25px;
+      &::before {
+        content: "\f0d7";
+        font-family: "icomoon";
+      }
+    }
+    .jq-selectbox__trigger {
+      border-left: none;
+    }
+  }
 }
 .product__price {
   button {
@@ -1850,6 +1911,19 @@ button.icon-unsorted {
 }
 .page-box__content {
   padding: 30px 35px 80px;
+  button {
+    margin-left: 260px;
+    cursor: pointer;
+    margin-top: 25px;
+    text-align: center;
+    width: 110px;
+    height: 45px;
+    background-color: $green;
+    color: #fff;
+    @include f500;
+    border: none;
+    padding: 15px 30px;
+  }
 }
 .settings__line {
   margin-bottom: 21px;
@@ -1865,16 +1939,7 @@ button.icon-unsorted {
     background-color: #f9f9f9;
     padding: 0px 10px;
   }
-  select {
-    max-width: 540px;
-    width: 100%;
-    border: none;
-    border: 1px solid #dedede;
-    height: 40px;
-    color: #707070;
-    background-color: #f9f9f9;
-    padding: 0px 10px;
-  }
+
   label {
     width: 260px;
     color: #444;
@@ -1890,6 +1955,54 @@ button.icon-unsorted {
     @include f500;
     border: none;
     padding: 15px 30px;
+  }
+  select {
+    max-width: 540px;
+    width: 100%;
+    border: none;
+    border: 1px solid #dedede;
+    height: 40px;
+    color: #707070;
+    background-color: #f9f9f9;
+    padding: 0px 10px;
+    display: block;
+    &::placeholder {
+      color: #707070;
+    }
+  }
+
+  .jq-selectbox {
+    width: 100%;
+    max-width: 540px;
+  }
+  .jq-selectbox__select {
+    height: 40px;
+    padding: 0px 10px;
+    border: 1px solid #d7d7d7;
+    border-bottom-color: #d7d7d7;
+    border-radius: 0px;
+    background: #f9f9f9;
+    box-shadow: none;
+    font-family: "Roboto-Regular", sans-serif;
+    line-height: 40px;
+    color: #707070;
+    width: 100%;
+    text-shadow: none;
+  }
+  .jq-selectbox__trigger-arrow {
+    border: none;
+    font-size: 15px;
+    width: 0;
+    top: 0;
+    right: 20px;
+    line-height: 40px;
+    &::before {
+      content: "\f0d7";
+      font-family: "icomoon";
+    }
+  }
+  .jq-selectbox__trigger {
+    border-left: none;
   }
 }
 // end settings page
@@ -2122,9 +2235,6 @@ button.icon-unsorted {
     span {
       color: $green;
     }
-    &::placeholder {
-      color: #707070;
-    }
   }
 
   select,
@@ -2136,6 +2246,9 @@ button.icon-unsorted {
     height: 40px;
     background-color: #f9f9f9;
     padding: 0px 18px;
+    &::placeholder {
+      color: #707070;
+    }
   }
   textarea {
     resize: none;
@@ -2219,4 +2332,131 @@ button.icon-unsorted {
 }
 // end upload page
 
+// start withdraws page
+
+.withdraws__inner {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 110px;
+}
+.withdraws__col {
+  max-width: 570px;
+  width: 100%;
+  background-color: #fff;
+  border: 1px solid #d7d7d7;
+  height: 100%;
+}
+.withdraws__title {
+  font-size: 24px;
+  @include f500;
+  padding: 18px 32px 24px;
+  border-bottom: 1px solid #d7d7d7;
+  margin-bottom: 30px;
+  color: $bg;
+}
+.withdraws__content {
+  padding-left: 35px;
+  padding-right: 40px;
+  button {
+    margin-bottom: 50px;
+    border: none;
+    background-color: $green;
+    color: #fff;
+    padding: 15px 35px;
+    cursor: pointer;
+  }
+}
+.withdraws__form-line {
+  margin-bottom: 25px;
+  label {
+    display: block;
+    width: 100%;
+    font-size: 16px;
+    @include f500;
+    color: $bg;
+    margin-bottom: 15px;
+    span {
+      color: $green;
+    }
+  }
+  select,
+  input {
+    width: 100%;
+    display: block;
+    border: 1px solid #d7d7d7;
+    height: 40px;
+    background-color: #f9f9f9;
+    padding: 0px 18px;
+    &::placeholder {
+      color: #707070;
+    }
+  }
+  .jq-selectbox {
+    width: 100%;
+  }
+  .jq-selectbox__select {
+    height: 40px;
+    padding: 0px 18px;
+    border: 1px solid #d7d7d7;
+    border-bottom-color: #d7d7d7;
+    border-radius: 0px;
+    background: #f9f9f9;
+    box-shadow: none;
+    font-family: "Roboto-Regular", sans-serif;
+    line-height: 40px;
+    color: #707070;
+    width: 100%;
+    text-shadow: none;
+  }
+  .jq-selectbox__trigger-arrow {
+    border: none;
+    font-size: 15px;
+    width: 0;
+    top: 0;
+    right: 20px;
+    line-height: 40px;
+    &::before {
+      content: "\f0d7";
+      font-family: "icomoon";
+    }
+  }
+  .jq-selectbox__trigger {
+    border-left: none;
+  }
+}
+.withdraws__content-items {
+  padding-bottom: 35px;
+}
+.withdraws__content-item {
+  display: flex;
+  height: 42px;
+  align-items: center;
+  font-size: 13px;
+  color: $bg;
+  &:nth-child(odd) {
+    background-color: #f9f9f9;
+  }
+}
+.withdraws__content-date {
+  width: 154px;
+  padding-left: 20px;
+  @include f500;
+}
+.withdraws__content-email {
+  width: 180px;
+  @include f500;
+}
+.withdraws__content-price {
+  width: 70px;
+  @include f700;
+}
+.withdraws__content-status {
+  width: 88px;
+  @include f700;
+
+  &.withdraws__content-paid {
+    color: $green;
+  }
+}
+// end withdraws page
 @import "media";
